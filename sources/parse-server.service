@@ -1,0 +1,15 @@
+[Unit]
+Description=Parse server
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/node /srv/parse-project/app.js
+Restart=always
+User=parse
+Group=parse
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production
+WorkingDirectory=/srv/parse-project
+
+[Install]
+WantedBy=multi-user.target
